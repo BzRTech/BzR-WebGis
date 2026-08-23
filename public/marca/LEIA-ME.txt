@@ -1,0 +1,35 @@
+BzR TECHNOLOGY — PACOTE DE MARCA
+=================================
+A assinatura é "O Bloco": um quadrado sólido com um único canto arredondado,
+sempre o superior-direito, tirado da bandeira do "R". Cor: verde-sinal #008037.
+Tipografia: Space Grotesk (logotipo) + JetBrains Mono (etiquetas).
+
+LOGOMARCA (logotipo "BzR TECHNOLOGY")
+- wordmark-color-transparent.png ... fundo transparente, para usar sobre fundos CLAROS
+- wordmark-white-transparent.png ... fundo transparente, para usar sobre fundos ESCUROS
+- wordmark-on-light.png ........... versão sobre fundo claro (#F4F5F2)
+- wordmark-on-dark.png ............ versão sobre fundo escuro (#0A0B0A)
+
+SÍMBOLO / LOGOMARCA REDUZIDA (o Bloco isolado — vetor, escala infinita)
+- bloco-green.svg / bloco-ink.svg / bloco-white.svg
+- bloco-green-512.png / bloco-ink-512.png / bloco-white-512.png
+
+FAVICON (ícone da aba do navegador)
+- favicon.svg ..................... vetor, recomendado (navegadores modernos)
+- favicon-16.png / -32.png / -48.png / -64.png / -128.png / -256.png
+
+ÍCONE DE APP (tela inicial de celular / PWA — Bloco sobre quadrado preto)
+- app-icon.svg
+- apple-touch-icon-180.png (iOS)
+- icon-192.png / icon-512.png (Android / PWA)
+- site.webmanifest (manifesto PWA)
+
+COMO INSTALAR O FAVICON NO SITE
+1. Suba os arquivos favicon* , apple-touch-icon-180.png, icon-*.png e
+   site.webmanifest na raiz do seu site.
+2. Cole o conteúdo de favicon-snippet.html dentro do <head>.
+
+REGRAS
+- O canto arredondado fica SEMPRE no superior-direito; nunca gire.
+- Sem degradê, sem sombra, sem contorno. É chapado.
+- Em uma cor só: use a versão preta (#0A0B0A) ou branca.

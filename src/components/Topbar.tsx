@@ -3,32 +3,31 @@ export type View = "dashboard" | "mapa";
 interface TopbarProps {
   view: View;
   onChange: (view: View) => void;
+  /** Volta para a landing institucional. */
+  onSair?: () => void;
 }
 
-export default function Topbar({ view, onChange }: TopbarProps) {
+export default function Topbar({ view, onChange, onSair }: TopbarProps) {
   return (
     <header className="topbar">
-      <div className="brand">
+      <button className="brand" type="button" onClick={onSair}>
+        {/* "O Bloco": quadrado com um único canto arredondado, sempre o
+            superior-direito (assinatura da marca BzR — public/marca). */}
         <svg
           className="brand__mark"
-          viewBox="0 0 64 64"
+          viewBox="0 0 100 100"
           role="img"
           aria-label="BzR"
         >
-          <rect width="64" height="64" rx="14" fill="#0f4d31" />
-          <path
-            d="M32 12c-8.8 0-16 6.6-16 14.8C16 38 32 52 32 52s16-14 16-25.2C48 18.6 40.8 12 32 12z"
-            fill="#4FA877"
-          />
-          <circle cx="32" cy="27" r="6.2" fill="#F7F8F5" />
+          <path d="M0 0 H64 A36 36 0 0 1 100 36 V100 H0 Z" fill="#fff" />
         </svg>
-        <div>
-          <div className="brand__name">
+        <span>
+          <span className="brand__name">
             BzR <b>WebGIS</b>
-          </div>
-          <div className="brand__tag">Gestão Geoespacial</div>
-        </div>
-      </div>
+          </span>
+          <span className="brand__tag">Gestão Geoespacial</span>
+        </span>
+      </button>
 
       <nav className="topbar__nav" aria-label="Navegação principal">
         <button

@@ -5,10 +5,14 @@ demandas municipais, organizado em módulos (gestão de vias, iluminação,
 ambiental, drenagem, resíduos, etc.).
 
 Inspirado no projeto interno [eixo-webgis](https://github.com/BzRTech/eixo-webgis),
-com identidade visual própria da BzR: **cor principal verde** e **tipografia serif**.
+com a identidade visual da **BzR Technology** entregue pelo Claude Design:
+verde-sinal `#008037`, Space Grotesk + JetBrains Mono e "O Bloco" — o quadrado
+com um único canto arredondado, sempre o superior-direito.
 
 ## Funcionalidades
 
+- **Landing institucional** — página pública de apresentação da plataforma
+  (recursos, módulos, diferenciais e contato). É a tela de entrada do app.
 - **Painel de gestão** — KPIs de projetos, progresso e demandas por módulo.
 - **Mapa operacional** — camadas por módulo municipal, com demandas
   georreferenciadas e situação (pendente / em andamento / concluído).
@@ -20,7 +24,8 @@ com identidade visual própria da BzR: **cor principal verde** e **tipografia se
 
 - [Vite](https://vitejs.dev/) + [React](https://react.dev/) + TypeScript
 - [Leaflet](https://leafletjs.com/) + [react-leaflet](https://react-leaflet.js.org/)
-- Tipografia: **Fraunces** (títulos) e **Lora** (texto), com fallback serif do sistema.
+- Tipografia: **Space Grotesk** (display) e **JetBrains Mono** (etiquetas),
+  com fallback para as fontes do sistema.
 
 ## Como rodar
 
@@ -34,11 +39,19 @@ npm run preview  # pré-visualização do build
 ## Estrutura
 
 ```
+public/
+├── favicon.svg, icon-*.png, site.webmanifest   # ícones da marca
+└── marca/              # pacote de logo (bloco, wordmarks) + LEIA-ME
 src/
-├── App.tsx              # orquestra navegação (Painel / Mapa) e estado dos módulos
-├── index.css           # TEMA: paleta verde + tipografia serif (variáveis CSS)
+├── App.tsx             # alterna Landing ↔ plataforma (Painel / Mapa)
+├── index.css           # TEMA: tokens da marca BzR (variáveis CSS)
 ├── data/
 │   └── modules.ts      # catálogo de módulos + demandas de exemplo
+├── landing/
+│   ├── Landing.tsx     # landing institucional (porte do artboard do Claude Design)
+│   ├── HeroShot.tsx    # moldura com o print do sistema (slot de imagem)
+│   ├── content.ts      # copy PT-BR da landing
+│   └── landing.css     # estilos da landing (escopados em .landing)
 └── components/
     ├── Topbar.tsx      # barra superior + navegação + marca
     ├── Sidebar.tsx     # lista de módulos municipais (toggle de camadas)
@@ -47,21 +60,31 @@ src/
     └── Dashboard.tsx   # painel de gestão (KPIs, projetos, módulos)
 ```
 
+### Print do hero
+
+O hero da landing tem um slot para uma imagem do sistema. Coloque um print em
+`public/hero-webgis.png` e ele aparece automaticamente; sem o arquivo, o slot
+mostra o estado vazio com a instrução.
+
 ## Identidade visual
 
 A paleta institucional e a tipografia ficam em `:root` no início de
-`src/index.css`. Para ajustar o branding (ex.: novas cores vindas do Claude
-Design), basta editar as variáveis `--green-*`, `--accent-*`,
-`--font-display` e `--font-body` — todo o restante da interface se adapta
-automaticamente.
+`src/index.css`. Para ajustar o branding basta editar as variáveis
+`--green-*`, `--ink-*`, `--font-*` e `--radius-*` — todo o restante da
+interface se adapta automaticamente.
 
 ```css
 :root {
-  --color-primary: var(--green-700); /* verde principal BzR */
-  --font-display: "Fraunces", serif; /* títulos serif */
-  --font-body: "Lora", serif; /* corpo de texto serif */
+  --color-primary: var(--green-600); /* verde-sinal #008037 */
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --radius: 0 12px 0 0; /* "O Bloco": canto arredondado no superior-direito */
 }
 ```
+
+Regras da marca (ver `public/marca/LEIA-ME.txt`): o canto arredondado fica
+**sempre** no superior-direito, o verde é a **única** cor de ação, e a marca
+não usa degradê, sombra ou contorno.
 
 ## Dados
 

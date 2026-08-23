@@ -1,58 +1,67 @@
 /* ==========================================================================
    BzR WebGIS — Tema base
-   Paleta institucional verde + tipografia serif.
-   Tudo é controlado por variáveis CSS para facilitar o rebranding futuro
-   (ex.: ajustes vindos do Claude Design).
+   Tokens da identidade BzR Technology entregue pelo Claude Design
+   (ver public/marca/LEIA-ME.txt):
+     · Verde-sinal #008037 como única cor de ação.
+     · Fundo "paper" #F4F5F2 e tinta #0A0B0A.
+     · Space Grotesk (display) + JetBrains Mono (etiquetas).
+     · "O Bloco": um único canto arredondado, sempre o superior-direito.
+   Todo o restante da interface consome estas variáveis — trocar os valores
+   aqui rebranda a aplicação inteira.
    ========================================================================== */
 
 :root {
-  /* ---- Cor principal: verde institucional BzR ---- */
-  --green-900: #0d3b25;
-  --green-800: #0f4d31;
-  --green-700: #156540;
-  --green-600: #1b7a4b;
-  --green-500: #259862;
-  --green-400: #4fa877;
-  --green-300: #86c6a3;
-  --green-200: #c2e3d2;
-  --green-100: #e7f3ec;
+  /* ---- Cor principal: verde-sinal BzR (#008037) ---- */
+  --green-900: #00220e;
+  --green-800: #004a20;
+  --green-700: #00662c; /* verde escuro — hover de ações */
+  --green-600: #008037; /* VERDE-SINAL — cor principal da marca */
+  --green-500: #009c45;
+  --green-400: #35b36b;
+  --green-300: #79cf9f;
+  --green-200: #b9e6cc;
+  --green-100: #e4f4ea;
 
-  /* ---- Cor de destaque (dourado/terra) — combina com verde + serif ---- */
-  --accent-600: #b8901f;
-  --accent-500: #c9a227;
-  --accent-400: #ddbb5a;
+  /* ---- Cores de apoio (só para status/alerta, nunca como ação) ---- */
+  --accent-600: #a8761f;
+  --accent-500: #c0892e; /* âmbar do manual de marca */
+  --accent-400: #d8a954;
+  --danger-500: #c03a22; /* vermelho do manual de marca */
 
   /* ---- Neutros ---- */
-  --ink-900: #14211b;
-  --ink-700: #2f4138;
-  --ink-500: #5c6b63;
-  --ink-300: #9aa8a0;
-  --bg: #f6f8f5;
-  --surface: #ffffff;
-  --surface-alt: #eef2ec;
-  --border: #dce5dd;
+  --ink-900: #0a0b0a; /* tinta */
+  --ink-700: #34362f;
+  --ink-500: #6b6f69; /* texto secundário */
+  --ink-300: #9da199;
+  --bg: #f4f5f2; /* paper */
+  --surface: #ffffff; /* card */
+  --surface-alt: #ebede7; /* paper 2 */
+  --border: rgba(10, 11, 10, 0.12);
+  --border-soft: rgba(10, 11, 10, 0.07);
 
   /* ---- Papéis semânticos ---- */
-  --color-primary: var(--green-700);
-  --color-primary-strong: var(--green-800);
+  --color-primary: var(--green-600);
+  --color-primary-strong: var(--green-700);
   --color-primary-soft: var(--green-100);
   --color-accent: var(--accent-500);
   --color-text: var(--ink-900);
   --color-text-muted: var(--ink-500);
 
   /* ---- Tipografia ---- */
-  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino,
-    "Times New Roman", Georgia, serif;
-  --font-body: "Lora", Georgia, "Times New Roman", serif;
+  --font-display: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  /* ---- Forma & sombra ---- */
-  --radius-sm: 8px;
-  --radius: 12px;
-  --radius-lg: 18px;
-  --shadow-sm: 0 1px 2px rgba(20, 33, 27, 0.06),
-    0 1px 3px rgba(20, 33, 27, 0.08);
-  --shadow: 0 6px 20px rgba(15, 77, 49, 0.1);
-  --shadow-lg: 0 18px 48px rgba(13, 59, 37, 0.18);
+  /* ---- Forma: "O Bloco" — canto arredondado apenas no superior-direito ---- */
+  --radius-sm: 0 8px 0 0;
+  --radius: 0 12px 0 0;
+  --radius-lg: 0 18px 0 0;
+
+  /* ---- Sombra (chapada, discreta — a marca não usa degradê) ---- */
+  --shadow-sm: 0 1px 2px rgba(10, 11, 10, 0.06),
+    0 1px 3px rgba(10, 11, 10, 0.08);
+  --shadow: 0 6px 20px rgba(10, 11, 10, 0.1);
+  --shadow-lg: 0 18px 48px rgba(10, 11, 10, 0.18);
 
   color-scheme: light;
 }
@@ -129,12 +138,7 @@ a {
   gap: 16px;
   padding: 0 22px;
   height: 64px;
-  background: linear-gradient(
-    100deg,
-    var(--green-800) 0%,
-    var(--green-700) 55%,
-    var(--green-600) 100%
-  );
+  background: var(--ink-900);
   color: #fff;
   box-shadow: var(--shadow);
   z-index: 1100;
@@ -144,6 +148,11 @@ a {
   display: flex;
   align-items: center;
   gap: 12px;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  text-align: left;
 }
 
 .brand__mark {
@@ -153,6 +162,7 @@ a {
 }
 
 .brand__name {
+  display: block;
   font-family: var(--font-display);
   font-size: 22px;
   font-weight: 600;
@@ -161,11 +171,12 @@ a {
 }
 
 .brand__name b {
-  color: var(--accent-400);
+  color: var(--green-400);
   font-weight: 700;
 }
 
 .brand__tag {
+  display: block;
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -293,12 +304,14 @@ a {
 }
 
 .module__name {
+  display: block;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 15.5px;
 }
 
 .module__meta {
+  display: block;
   font-size: 12.5px;
   color: var(--color-text-muted);
 }
