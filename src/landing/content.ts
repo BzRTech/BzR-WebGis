@@ -11,6 +11,8 @@ export const CONTATO = {
   whatsapp: "https://wa.me/5583993454556",
   whatsappComTexto:
     "https://wa.me/5583993454556?text=Ol%C3%A1%2C%20quero%20conhecer%20o%20BzR%20WebGIS",
+  /** Link curto da conta WhatsApp Business — mesmo destino do QR impresso. */
+  whatsappQr: "https://wa.me/message/6VZVDWLSBSODN1",
 } as const;
 
 /** Prova social do hero. */

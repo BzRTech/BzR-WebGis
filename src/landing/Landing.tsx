@@ -210,17 +210,36 @@ export default function Landing({ onEntrar }: LandingProps) {
               <span className="cur" aria-hidden="true" />
             </h2>
           </div>
-          <div className="ctaacts">
-            <a className="btn onink" href={`mailto:${CONTATO.email}`}>
-              Solicitar demonstração
-            </a>
+          <div className="ctaside">
+            <div className="ctaacts">
+              <a className="btn onink" href={`mailto:${CONTATO.email}`}>
+                Solicitar demonstração
+              </a>
+              <a
+                className="btn onwhite"
+                href={CONTATO.whatsappComTexto}
+                target="_blank"
+                rel="noopener"
+              >
+                Falar no WhatsApp
+              </a>
+            </div>
             <a
-              className="btn onwhite"
-              href={CONTATO.whatsappComTexto}
+              className="qr"
+              href={CONTATO.whatsappQr}
               target="_blank"
               rel="noopener"
             >
-              Falar no WhatsApp
+              <img
+                src="/marca/whatsapp-qr.svg"
+                alt="QR code do WhatsApp da BzR Tech"
+                width={104}
+                height={104}
+              />
+              <span className="txt">
+                <b>Aponte a câmera</b>
+                <span>WhatsApp BzR Tech</span>
+              </span>
             </a>
           </div>
         </div>
@@ -256,6 +275,9 @@ export default function Landing({ onEntrar }: LandingProps) {
                 </a>
                 <a href={`mailto:${CONTATO.email}`}>{CONTATO.email}</a>
                 <a href="#contato">Solicitar demonstração</a>
+                <a href={CONTATO.whatsappQr} target="_blank" rel="noopener">
+                  QR do WhatsApp
+                </a>
               </div>
             </div>
           </div>

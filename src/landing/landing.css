@@ -160,6 +160,57 @@ html:has(.landing) {
   gap: 12px;
 }
 
+/* ---- Cartão do QR do WhatsApp (opção de contato no CTA) ---- */
+.landing .ctaside {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.landing .qr {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #fff;
+  color: var(--lp-ink);
+  padding: 14px 20px 14px 14px;
+  border-radius: 0 18px 0 0;
+  transition: 0.16s;
+}
+
+.landing .qr:hover {
+  color: var(--lp-ink);
+  box-shadow: 0 8px 26px rgba(10, 11, 10, 0.18);
+}
+
+.landing .qr img {
+  width: 104px;
+  height: 104px;
+  display: block;
+  flex: none;
+}
+
+.landing .qr .txt {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.landing .qr .txt b {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.landing .qr .txt span {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--lp-muted);
+}
+
 /* ---- Botão flutuante de WhatsApp ---- */
 .landing .wa {
   position: fixed;
@@ -851,6 +902,9 @@ html:has(.landing) {
    ========================================================================== */
 
 @media (max-width: 1000px) {
+  .landing .ctaside {
+    align-items: stretch;
+  }
   .landing .grid8 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -913,6 +967,13 @@ html:has(.landing) {
   }
   .landing .wa .num {
     display: none;
+  }
+  .landing .qr {
+    padding: 12px;
+  }
+  .landing .qr img {
+    width: 88px;
+    height: 88px;
   }
 }
 
