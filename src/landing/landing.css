@@ -5,16 +5,24 @@
    as cores e fontes vêm dos tokens da marca em src/index.css.
    ========================================================================== */
 
+/* Tema escuro por padrão — a landing acompanha o restante da plataforma.
+   O verde-sinal (--green-600) segue sendo a cor de ação em preenchimentos
+   sólidos; sobre fundo escuro, textos e marcas usam --lp-green-t, que tem
+   contraste de 8,4:1 contra o preto (o verde-sinal daria só 3,9:1). */
 .landing {
   --lp-green: var(--green-600);
-  --lp-green-d: var(--green-700);
-  --lp-ink: var(--ink-900);
-  --lp-paper: var(--bg);
-  --lp-paper2: var(--surface-alt);
-  --lp-card: var(--surface);
-  --lp-muted: var(--ink-500);
-  --lp-line: var(--border);
-  --lp-line-soft: var(--border-soft);
+  --lp-green-t: #4fbe7d;
+  --lp-green-d: #00a046;
+  --lp-ink: #f1f3ef;
+  --lp-paper: var(--ink-900);
+  --lp-paper2: #141614;
+  --lp-card: #121412;
+  --lp-card-2: #171a17;
+  --lp-deep: var(--ink-900);
+  --lp-deep-muted: var(--ink-500);
+  --lp-muted: rgba(241, 243, 239, 0.56);
+  --lp-line: rgba(255, 255, 255, 0.14);
+  --lp-line-soft: rgba(255, 255, 255, 0.07);
 
   background: var(--lp-paper);
   color: var(--lp-ink);
@@ -28,12 +36,12 @@ html:has(.landing) {
 }
 
 .landing a {
-  color: var(--lp-green);
+  color: var(--lp-green-t);
   text-decoration: none;
 }
 
 .landing a:hover {
-  color: var(--lp-green-d);
+  color: #7ed4a0;
 }
 
 .landing .wrap {
@@ -48,7 +56,7 @@ html:has(.landing) {
   font-size: 11.5px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--lp-green);
+  color: var(--lp-green-t);
   display: flex;
   align-items: center;
   gap: 11px;
@@ -57,7 +65,7 @@ html:has(.landing) {
 .landing .kick .mk {
   width: 9px;
   height: 9px;
-  background: var(--lp-green);
+  background: var(--lp-green-t);
   border-radius: 0 4px 0 0;
   flex: none;
 }
@@ -79,7 +87,7 @@ html:has(.landing) {
 .landing .mark .flag {
   width: 19px;
   height: 11px;
-  background: var(--lp-green);
+  background: var(--lp-green-t);
   border-radius: 0 6px 0 0;
   margin-left: 2px;
   transform: translateY(-7px);
@@ -130,16 +138,17 @@ html:has(.landing) {
 .landing .btn.ghost:hover {
   border-color: var(--lp-ink);
   color: var(--lp-ink);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .landing .btn.onink {
   background: #fff;
-  color: var(--lp-ink);
+  color: var(--lp-deep);
 }
 
 .landing .btn.onink:hover {
-  background: var(--lp-paper);
-  color: var(--lp-ink);
+  background: #e9ebe6;
+  color: var(--lp-deep);
 }
 
 .landing .btn.onwhite {
@@ -173,15 +182,15 @@ html:has(.landing) {
   align-items: center;
   gap: 16px;
   background: #fff;
-  color: var(--lp-ink);
+  color: var(--lp-deep);
   padding: 14px 20px 14px 14px;
   border-radius: 0 18px 0 0;
   transition: 0.16s;
 }
 
 .landing .qr:hover {
-  color: var(--lp-ink);
-  box-shadow: 0 8px 26px rgba(10, 11, 10, 0.18);
+  color: var(--lp-deep);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
 .landing .qr img {
@@ -208,7 +217,7 @@ html:has(.landing) {
   font-size: 10.5px;
   letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: var(--lp-muted);
+  color: var(--lp-deep-muted);
 }
 
 /* ---- Botão flutuante de WhatsApp ---- */
@@ -220,7 +229,8 @@ html:has(.landing) {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: var(--lp-ink);
+  background: var(--lp-card-2);
+  border: 1px solid var(--lp-line);
   color: #fff;
   padding: 14px 18px;
   border-radius: 0 16px 0 0;
@@ -239,7 +249,7 @@ html:has(.landing) {
 .landing .wa .d {
   width: 8px;
   height: 8px;
-  background: var(--lp-green);
+  background: var(--lp-green-t);
   border-radius: 0 4px 0 0;
   flex: none;
   animation: lp-blink 1.05s steps(1) infinite;
@@ -268,7 +278,7 @@ html:has(.landing) {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(244, 245, 242, 0.9);
+  background: rgba(10, 11, 10, 0.82);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--lp-line-soft);
 }
@@ -330,13 +340,13 @@ html:has(.landing) {
 }
 
 .landing .hero h1 .g {
-  color: var(--lp-green);
+  color: var(--lp-green-t);
 }
 
 /* Cursor piscante — o Bloco em movimento */
 .landing .cur {
   display: inline-block;
-  background: var(--lp-green);
+  background: var(--lp-green-t);
   border-radius: 0 0.3em 0 0;
   width: 0.5em;
   height: 0.88em;
@@ -364,7 +374,7 @@ html:has(.landing) {
 .landing .hero .sub {
   font-size: 19.5px;
   line-height: 1.55;
-  color: var(--ink-700);
+  color: rgba(241, 243, 239, 0.72);
   max-width: 56ch;
   margin: 26px 0 0;
   text-wrap: pretty;
@@ -402,7 +412,7 @@ html:has(.landing) {
   content: "";
   width: 6px;
   height: 6px;
-  background: var(--lp-green);
+  background: var(--lp-green-t);
   border-radius: 0 3px 0 0;
 }
 
@@ -413,28 +423,33 @@ html:has(.landing) {
 }
 
 .landing .shot .frame {
-  background: var(--lp-ink);
+  background: var(--lp-card);
+  border: 1px solid var(--lp-line);
+  border-bottom: none;
   border-radius: 0 34px 0 0;
   padding: 12px 12px 0;
   position: relative;
   overflow: hidden;
 }
 
-.landing .shot .bar {
+/* .lp-bar (e não .bar): o app já tem um .bar global — a barra de progresso
+   do painel — e ele venceria aqui, já que a landing divide a folha de estilo
+   com o resto da aplicação. Mesma razão de .lp-header / .lp-footer. */
+.landing .shot .lp-bar {
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 4px 8px 12px;
 }
 
-.landing .shot .bar i {
+.landing .shot .lp-bar i {
   width: 9px;
   height: 9px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.18);
 }
 
-.landing .shot .bar .u {
+.landing .shot .lp-bar .u {
   margin-left: 12px;
   font-family: var(--font-mono);
   font-size: 10.5px;
@@ -476,7 +491,7 @@ html:has(.landing) {
 .landing .shot .slot .empty .mk {
   width: 26px;
   height: 26px;
-  background: var(--lp-green);
+  background: var(--lp-green-t);
   border-radius: 0 10px 0 0;
 }
 
@@ -550,7 +565,7 @@ html:has(.landing) {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: var(--lp-green);
+  color: var(--lp-green-t);
 }
 
 .landing .feat h3 {
@@ -579,7 +594,7 @@ html:has(.landing) {
    ========================================================================== */
 
 .landing .mods {
-  background: var(--lp-ink);
+  background: var(--lp-card);
   color: #fff;
 }
 
@@ -612,7 +627,7 @@ html:has(.landing) {
 .landing .mod .n {
   font-family: var(--font-mono);
   font-size: 12px;
-  color: var(--lp-green);
+  color: var(--lp-green-t);
   font-weight: 700;
 }
 
@@ -677,7 +692,7 @@ html:has(.landing) {
 .landing .extend .mk {
   width: 9px;
   height: 9px;
-  background: var(--lp-green);
+  background: var(--lp-green-t);
   border-radius: 0 4px 0 0;
   flex: none;
 }
@@ -708,7 +723,7 @@ html:has(.landing) {
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--lp-green);
+  color: var(--lp-green-t);
 }
 
 .landing .dcard h3 {
@@ -762,7 +777,7 @@ html:has(.landing) {
   font-family: var(--font-mono);
   font-size: 34px;
   font-weight: 700;
-  color: var(--lp-green);
+  color: var(--lp-green-t);
   letter-spacing: -0.04em;
   line-height: 1;
 }
@@ -824,7 +839,7 @@ html:has(.landing) {
    ========================================================================== */
 
 .landing .lp-footer {
-  background: var(--lp-ink);
+  background: var(--lp-card);
   color: rgba(255, 255, 255, 0.6);
   padding: 56px 0 40px;
 }

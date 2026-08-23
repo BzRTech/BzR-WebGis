@@ -26,7 +26,7 @@ export default function HeroShot({
   return (
     <div className="shot">
       <div className="frame">
-        <div className="bar">
+        <div className="lp-bar">
           <i />
           <i />
           <i />
